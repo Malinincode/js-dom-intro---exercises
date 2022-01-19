@@ -232,7 +232,8 @@ Använd getElementsByClassName för att först hämta alla element, samt for-loo
 
 for (let i = 0; i < divElements.length; i++) {
     console.log(divElements[i]);
-    divElements[i].style.borderRadius = "50%";
+    divElements[i].style.height = 120px;
+    divElements[i].style.width = 120px;
 }
  */
 
