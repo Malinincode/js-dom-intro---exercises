@@ -37,7 +37,7 @@ console.log('################### getElementsByTagName ################');
 // Similar to an array, having the elements indexed and even has proprties such as .length
 // Read more here: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection
 
-/* let divElements = document.getElementsByTagName('div');
+let divElements = document.getElementsByTagName('div');
 // console.log(divElements);
 // console.log(divElements[0]);
 // console.log(divElements[5]);
@@ -47,7 +47,7 @@ for (let i = 0; i < divElements.length; i++) {
     console.log(divElements[i]);
     divElements[i].style.borderRadius = "50%";
 }
- */
+
 
 
 console.log('################### querySelector ################');
@@ -201,14 +201,17 @@ Googla hur man tar bort/lägger till klasser på element, med JS.
 
 Använd getElementsByTagName för att först hämta alla element, samt for-loop för att ersätta alla klasser
 */
-$('div').removeClass('box').addClass('green-box');
-/* https://webbling.se/index.php/JQuery_-_att_hantera_klasser */
+/* $('div').removeClass('box').addClass('green-box');
+ https://webbling.se/index.php/JQuery_-_att_hantera_klasser */ 
 
-let divElements = document.getElementsByTagName('div');
+divElements = document.getElementsByTagName('div');
+
 
 for (let i = 0; i < divElements.length; i++) {
+    divElements[i].classList.add('green-box');
+    divElements[i].classList.remove('box');
     console.log(divElements[i]);
-    divElements[i].style.borderRadius = "50%";
+ 
 }
 
 
@@ -223,19 +226,15 @@ Googla hur man ändrar ett elements höjd och bredd i JS.
 Använd getElementsByClassName för att först hämta alla element, samt for-loop för att göra ändringen
 
 */
+boxes = document.getElementsByClassName('green-box');
 
-/* let divElements = document.getElementsByTagName('div');
-// console.log(divElements);
-// console.log(divElements[0]);
-// console.log(divElements[5]);
-// console.log(divElements.length);
-
-for (let i = 0; i < divElements.length; i++) {
-    console.log(divElements[i]);
-    divElements[i].style.height = 120px;
-    divElements[i].style.width = 120px;
+for (let i = 0; i < boxes.length; i++) {
+    boxes[i].style.height = "120px";
+    boxes[i].style.width = "120px";
+    console.log(boxes[i])
+   
 }
- */
+
 
 
 
@@ -246,13 +245,18 @@ Ge box 5 en orange border.
 
 Använd querySelector för att först hämta elementet
 */
+section = document.querySelector('main')
+console.log(section);
+section.lastElementChild.style.borderColor = 'orange';
+
+/* Oscars lösning:
+main = document.querySelector("main");
+
+main.lastElementChild.style.border = "1px solid orange"; */
 
 
 
-
-
-/* 
-5)
+/*5)
 
 Lägg till en ny länk 'My second link :)' i den beiga boxen
 
@@ -261,6 +265,13 @@ Använd createElement för att skapa den nya länken
 Använd appendChild för att lägga till länken till den beiga boxen
 */
 
+
+main = document.getElementById("content");
+let newLink = document.createElement("a");
+newLink.innerHTML = "My second link :)";
+
+main.children[5].appendChild(newLink);
+newLink.href = "#";
 
 
 /* 
