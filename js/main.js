@@ -283,7 +283,8 @@ Lägg till attributet target med värdet _blank' till den nya länken
 Använd setAttribute för att lägga till de nya attributen
 */
 
-
+newLink.setAttribute('href', '#####')
+newLink.setAttribute('target', '_blank')
 
 /* 
 7)
@@ -295,8 +296,12 @@ Lägg till attributet width med värdet 100
 Lägg till attributet height med värdet 100
 */
 
-
-
+let firstImg = document.createElement('img')
+firstImg.setAttribute('src', '/img/logo.png')
+firstImg.setAttribute('alt', 'Sibars stora gula vackra fina blomma')
+firstImg.setAttribute('width', '100')
+firstImg.setAttribute('height', '100')
+main.append(firstImg)
 
 /* 
 8)
@@ -304,8 +309,21 @@ Lägg till attributet height med värdet 100
 Lägg till en eventlistener 'mouseover' på din bild, som skriver ut en text via alert();
 */
 
+firstImg.addEventListener('mouseover', alertOnMouseover1);
+
+function alertOnMouseover1() {
+    alert('Pretty flower');
+}
+
+//Solution 2 anonymous
+
+// firstImg.addEventListener("mouseover", function() {alert("Hejsan svejsan! :-)");});
 
 
+
+//Solutions 3 with arrow function
+
+//firstImg.addEventListener("mouseover", () => alert("Hejsan svejsan! :-)"));
 
 
 /* 
@@ -316,10 +334,10 @@ Lägg till en eventlistener på din länk från övning 5, som skall radera allt
 Använd DOM navigeringen mySecondLink.parentNode för att hämta beiga boxen, som då är förälder till länken.
 */
 
+newLink.addEventListener("mouseover", () => {
+    newLink.parentNode.innerHTML = "";/*  Här skriver vi över det som ligger i html här: länktexten */
 
-
-
-
+    });
 
 /* 
 10)
@@ -339,4 +357,34 @@ Knappen "Green" ändrar bakgrundsfärgen till grön osv.
 Lägg alla 2 knappar innanför sektionen
 Lägg till sektionen i main#content
 */
+
+let newSection = document.createElement('section')
+newSection.style.height = '100px';
+newSection.style.width = '200px';
+newSection.style.border = '1px solid pink';
+
+main.appendChild(newSection)
+
+let btn1 = document.createElement("button");
+btn1.innerHTML = "Green";
+
+btn1.addEventListener('click', ()=>{ 
+        newSection.style.backgroundColor = 'green';
+
+        });
+
+newSection.append(btn1)
+
+ let btn2 = document.createElement("button");
+btn2.innerHTML = "Blue";
+
+ btn2.addEventListener('click', ()=>{ 
+    newSection.style.backgroundColor = 'blue';
+
+    });
+
+newSection.append(btn2)
+
+
+
 
